@@ -1,3 +1,5 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module regfile(
     input       wire                clk,
     input       wire                rst,
@@ -10,12 +12,12 @@ module regfile(
     // read port1
     input       wire                re1,
     input       wire[`RegAddrBus]   raddr1,
-    input       wire[`RegBus]       rdata1,
+    output      reg[`RegBus]        rdata1,
 
     // read port2
     input       wire                re2,
     input       wire[`RegAddrBus]   raddr2,
-    input       wire[`RegBus]       rdata2
+    output      reg[`RegBus]        rdata2
 );
 
 reg [`RegBus]   regs[0:`RegNum-1];

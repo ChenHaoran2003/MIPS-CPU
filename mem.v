@@ -1,3 +1,5 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module mem(
     input   wire                rst,
 

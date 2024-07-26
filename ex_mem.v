@@ -1,8 +1,10 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module ex_mem(
     input   wire                clk,
     input   wire                rst,
 
-    input   wire[`RefAddrBus]   ex_wd,
+    input   wire[`RegAddrBus]   ex_wd,
     input   wire                ex_wreg,
     input   wire[`RegBus]       ex_wdata,
 

@@ -1,3 +1,5 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module MyMIPS(
     input   wire            clk,
     input   wire            rst,
@@ -87,7 +89,7 @@ id id0(
     .reg1_addr_o    (reg1_addr),
     .reg2_addr_o    (reg2_addr),
     
-    .alupo_o        (id_aluop_o),
+    .aluop_o        (id_aluop_o),
     .alusel_o       (id_alusel_o),
     .reg1_o         (id_reg1_o),
     .reg2_o         (id_reg2_o),
@@ -100,20 +102,20 @@ regfile regfile1(
     .rst            (rst),
     .we             (wb_wreg_i),
     .waddr          (wb_wd_i),
-    .wdata          (wb_data_i),
+    .wdata          (wb_wdata_i),
     .re1            (reg1_read),
     .raddr1         (reg1_addr),
     .rdata1         (reg1_data),
     .re2            (reg2_read),
     .raddr2         (reg2_addr),
-    .rdata2         (reg2_data),
+    .rdata2         (reg2_data)
 ); 
 
 id_ex id_ex0(
     .clk            (clk),
     .rst            (rst),
 
-    .id_aluop       (ex_aluop_i),
+    .id_aluop       (id_aluop_o),
     .id_alusel      (id_alusel_o),
     .id_reg1        (id_reg1_o),
     .id_reg2        (id_reg2_o),

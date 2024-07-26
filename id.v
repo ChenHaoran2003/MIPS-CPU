@@ -1,3 +1,5 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module id(
     input       wire                    rst,
     input       wire[`InstAddrBus]      pc_i,

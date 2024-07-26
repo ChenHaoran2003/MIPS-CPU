@@ -1,3 +1,5 @@
+`include "E:/CPU/MIPS-CPU/defines.v"
+
 module id_ex(
     input   wire                clk,
     input   wire                rst,
@@ -26,12 +28,12 @@ always @(posedge clk) begin
         ex_wd       <=  `NOPRegAddr;
         ex_wreg     <=  `WriteDisable;
     end else begin
-        ex_aluop    <=  `EXE_NOP_OP;
-        ex_alusel   <=  `EXE_RES_NOP;
-        ex_reg1     <=  `ZeroWord;
-        ex_reg2     <=  `ZeroWord;
-        ex_wd       <=  `NOPRegAddr;
-        ex_wreg     <=  `WriteDisable;
+        ex_aluop    <=  id_aluop;
+        ex_alusel   <=  id_alusel;
+        ex_reg1     <=  id_reg1;
+        ex_reg2     <=  id_reg2;
+        ex_wd       <=  id_wd;
+        ex_wreg     <=  id_wreg;
     end
 end
 
