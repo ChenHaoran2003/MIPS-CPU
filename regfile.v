@@ -1,4 +1,4 @@
-`include "E:/CPU/MIPS-CPU/defines.v"
+`include "defines.v"
 
 module regfile(
     input       wire                clk,
@@ -32,7 +32,7 @@ end
 
 
 always @(*) begin
-    if(rst == `RstDisable) begin
+    if(rst == `RstEnable) begin
         rdata1  <=  `ZeroWord;
     end else if(raddr1 == `RegNumLog2'h0) begin
         rdata1  <=  `ZeroWord;
