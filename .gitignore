@@ -4,3 +4,4 @@
 *.S~
 *.data~
 .idea
+*.S
