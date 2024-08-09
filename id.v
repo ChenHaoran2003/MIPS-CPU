@@ -27,7 +27,9 @@ module id(
     output      reg[`RegBus]            reg1_o,
     output      reg[`RegBus]            reg2_o,
     output      reg[`RegAddrBus]        wd_o,
-    output      reg                     wreg_o
+    output      reg                     wreg_o,
+
+    output      wire                    stallreq
 );
 
 wire[5:0] op    = inst_i[31:26];
@@ -38,6 +40,8 @@ wire[4:0] op4   = inst_i[20:16];
 reg[`RegBus]    imm;
 
 reg             instvalid;
+
+assign stallreq =   `NoStop;
 
 always @(*) begin
     if(rst == `RstEnable) begin
@@ -370,6 +374,38 @@ always @(*) begin
                     `EXE_MUL: begin
                         wreg_o      <=  `WriteEnable;
                         aluop_o     <=  `EXE_MUL_OP;
+                        alusel_o    <=  `EXE_RES_MUL;
+                        reg1_read_o <=  1'b1;
+                        reg2_read_o <=  1'b1;
+                        instvalid   <=  `InstValid;
+                    end
+                    `EXE_MADD: begin
+                        wreg_o      <=  `WriteDisable;
+                        aluop_o     <=  `EXE_MADD_OP;
+                        alusel_o    <=  `EXE_RES_MUL;
+                        reg1_read_o <=  1'b1;
+                        reg2_read_o <=  1'b1;
+                        instvalid   <=  `InstValid;
+                    end
+                    `EXE_MADDU: begin
+                        wreg_o      <=  `WriteDisable;
+                        aluop_o     <=  `EXE_MADDU_OP;
+                        alusel_o    <=  `EXE_RES_MUL;
+                        reg1_read_o <=  1'b1;
+                        reg2_read_o <=  1'b1;
+                        instvalid   <=  `InstValid;
+                    end
+                    `EXE_MSUB: begin
+                        wreg_o      <=  `WriteDisable;
+                        aluop_o     <=  `EXE_MSUB_OP;
+                        alusel_o    <=  `EXE_RES_MUL;
+                        reg1_read_o <=  1'b1;
+                        reg2_read_o <=  1'b1;
+                        instvalid   <=  `InstValid;
+                    end
+                    `EXE_MSUBU: begin
+                        wreg_o      <=  `WriteDisable;
+                        aluop_o     <=  `EXE_MSUBU_OP;
                         alusel_o    <=  `EXE_RES_MUL;
                         reg1_read_o <=  1'b1;
                         reg2_read_o <=  1'b1;

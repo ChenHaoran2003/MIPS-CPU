@@ -14,6 +14,8 @@
 `define False_v             1'b0                // Logical false
 `define ChipEnable          1'b1                // Chip enable
 `define ChipDisable         1'b0                // Chip disable
+`define Stop                1'b1                // pipeline stop
+`define NoStop              1'b0                // pipeline continue
 
 
 //**********    macro define relate to Instructions
@@ -24,7 +26,6 @@
 `define EXE_XOR             6'b100110
 `define EXE_NOR             6'b100111
 `define EXE_ANDI            6'b001100
-`define EXE_ORI             6'b001101
 `define EXE_XORI            6'b001110
 `define EXE_LUI             6'b001111
 
@@ -58,6 +59,10 @@
 `define EXE_MULT            6'b011000
 `define EXE_MULTU           6'b011001
 `define EXE_MUL             6'b000010
+`define EXE_MADD            6'b000000
+`define EXE_MADDU           6'b000001
+`define EXE_MSUB            6'b000100
+`define EXE_MSUBU           6'b000101
 
 `define EXE_SYNC            6'b001111
 `define EXE_PREF            6'b110011
@@ -105,6 +110,10 @@
 `define EXE_MULT_OP         8'b00011000
 `define EXE_MULTU_OP        8'b00011001
 `define EXE_MUL_OP          8'b10101001
+`define EXE_MADD_OP         8'b10100110
+`define EXE_MADDU_OP        8'b10101000
+`define EXE_MSUB_OP         8'b10101010
+`define EXE_MSUBU_OP        8'b10101011
 
 `define EXE_NOP_OP          8'b00000000
 
