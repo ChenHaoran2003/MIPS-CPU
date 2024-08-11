@@ -64,6 +64,9 @@
 `define EXE_MSUB            6'b000100
 `define EXE_MSUBU           6'b000101
 
+`define EXE_DIV             6'b011010
+`define EXE_DIVU            6'b011011
+
 `define EXE_SYNC            6'b001111
 `define EXE_PREF            6'b110011
 `define EXE_SPECIAL_INST    6'b000000
@@ -114,6 +117,9 @@
 `define EXE_MADDU_OP        8'b10101000
 `define EXE_MSUB_OP         8'b10101010
 `define EXE_MSUBU_OP        8'b10101011
+
+`define EXE_DIV_OP          8'b00011010
+`define EXE_DIVU_OP         8'b00011011
 
 `define EXE_NOP_OP          8'b00000000
 

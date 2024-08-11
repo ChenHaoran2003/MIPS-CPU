@@ -78,7 +78,7 @@ always @(posedge clk) begin
                             dividend[31:0]  <=  (~dividend[31:0] + 1);
                         end
                         if((signed_div_i == 1'b1) && ((opdata1_i[31] ^ dividend[64]) == 1'b1)) begin
-                            dividend[64:33] <=  (~divedend[64:33] + 1);
+                            dividend[64:33] <=  (~dividend[64:33] + 1);
                         end
                         state   <=  `DivEnd;
                         cnt     <=  6'b000000;

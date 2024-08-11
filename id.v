@@ -484,7 +484,7 @@ end
 always @(*) begin
     if(rst == `RstEnable) begin
         reg2_o  <=  `ZeroWord;
-    end else if((reg2_read_o == 1'b1) && (ex_wreg_i == `'b1) && (ex_wd_i == reg2_addr_o)) begin
+    end else if((reg2_read_o == 1'b1) && (ex_wreg_i == 1'b1) && (ex_wd_i == reg2_addr_o)) begin
         reg2_o  <=  ex_wdata_i;
     end else if((reg2_read_o == 1'b1) && (mem_wreg_i == 1'b1) && (mem_wd_i == reg2_addr_o)) begin
         reg2_o  <=  mem_wdata_i;

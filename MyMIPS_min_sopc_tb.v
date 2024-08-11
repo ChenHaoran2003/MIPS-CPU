@@ -15,7 +15,7 @@ end
 initial begin
     rst = `RstEnable;
     #195 rst = `RstDisable;
-    #1000 $stop;
+    #4100 $stop;
 end
 
 MyMIPS_min_sopc MyMIPS_min_sopc0(
